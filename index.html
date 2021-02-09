@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Daf Yomi clues</title>
+    <title>Daf Yomi Crossword - Powered by Sefaria</title>
     <script src="index.js" defer></script>
     <style>
         .spoiler, .spoiler2{
@@ -17,13 +17,76 @@
         .spoiler2:hover {
             background-color:white;
         }
+        * {
+            font-family: "Courier New", Courier, monospace;
+            padding: 0;
+            margin: 0;
+            line-height: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        body {
+            padding: 1rem;
+        }
+
+        #words {
+            width: 90%;
+            height: 10rem;
+        }
+
+        #nav {
+            /*position: fixed;*/
+            /*top: 0;*/
+            /*left: 0;*/
+        }
+
+        #grid.hidden-answers .cell.full {
+            color: transparent;
+        }
+
+        #nav.hidden {
+            display: none;
+        }
+        .cell {
+            text-align: center;
+            vertical-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid black;
+            width: 30px;
+            height: 30px;
+            user-select: none;
+        }
+        .cell.empty, .cell.hint {
+            /*border: 1px solid #fff;*/
+            background: black;
+            color: white;
+            font-size: 15px;
+        }
+        .print .cell {
+            margin: .5px;
+        }
+        .print .cell.empty, .print .cell.hint {
+            border: 1px solid white;
+            background: white;
+            color: black;
+            font-size: 15px;
+        }
+        .row {
+            display: flex
+        }
+        span {
+            /*display: none;*/
+        }
+        #clues2 .heb {
+            font-family: Arial,sans-serif;
+        }
     </style>
 </head>
 <body>
     <h1 id="dafname"></h1>
     <ul id="clues"></ul>
-    <span>Enter a new daf:
-        <input id="refinput"/>
-    </span>
+    <label for="refinput">Enter a new daf: </label><input id="refinput"/>
+    <div id="cross"></div>
 </body>
 </html>
